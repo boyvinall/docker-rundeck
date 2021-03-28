@@ -1,0 +1,32 @@
+version: '2'
+services:
+
+  rundeck:
+    restart: always
+    image: rundeck-ansible
+    ports:
+      - 4440:4440
+    environment:
+      - SERVER_URL=http://127.0.0.1:4440
+      - DATABASE_URL=jdbc:mysql://mysql:3306/rundeck?autoReconnect=true
+      - RUNDECK_DATABASE_USERNAME-rundeck
+      - RUNDECK_DATABASE_PASSWORD=xnlRTpSq547pHME9
+    links:
+      - mysql
+    volumes:
+      - ./data/projects:/home/rundeck/projects:rw
+      - ./data/keys:/var/lib/rundeck_ssh:ro
+
+  mysql:
+    restart: always
+    image: mariadb:10
+    command: mysqld --innodb-buffer-pool-size=20M
+    environment:
+      - MYSQL_ROOT_PASSWORD=XEdBf274FXrSRcku
+      - MYSQL_DATABASE=rundeck
+      - MYSQL_USER=rundeck
+      - MYSQL_PASSWORD=xnlRTpSq547pHME9
+    volumes:
+      - ./data/mysql:/var/lib/mysql:rw
+    expose:
+      - 3306

@@ -1,0 +1,12 @@
+[submodule "image/ansible-plugin"]
+	path = image/ansible-plugin
+	url = https://github.com/Batix/rundeck-ansible-plugin.git
+[submodule "image/docker-plugin"]
+	path = image/docker-plugin
+	url = https://github.com/rundeck-plugins/docker.git
+[submodule "image/slack-incoming-webhook-plugin"]
+	path = image/slack-incoming-webhook-plugin
+	url = https://github.com/rundeck-plugins/slack-incoming-webhook-plugin.git
+[submodule "image/vault-storage-plugin"]
+	path = image/vault-storage-plugin
+	url = https://github.com/rundeck-plugins/vault-storage.git
