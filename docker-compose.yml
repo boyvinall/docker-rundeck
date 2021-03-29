@@ -15,7 +15,9 @@ services:
       - mysql
     volumes:
       - ./data/projects:/home/rundeck/projects:rw
+      - ./data/ansible:/home/rundeck/ansible:ro
       - ./data/keys:/var/lib/rundeck_ssh:ro
+      - $HOME/.ssh:/home/rundeck/.ssh
 
   mysql:
     restart: always
